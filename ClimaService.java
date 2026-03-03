@@ -15,7 +15,12 @@ public class ClimaService {
             Paths.get("C:/chavesAPI/wheater_api/api-key.txt")).trim();
 
         String formataNomeCidade = URLEncoder.encode(cidade, StandardCharsets.UTF_8);
-        String apiUrl = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + formataNomeCidade;
+        
+        String apiUrl = "http://api.weatherapi.com/v1/current.json?key=" 
+            + apiKey 
+            + "&q=" + formataNomeCidade 
+            + "&lang=pt";
+
         HttpRequest request = HttpRequest.newBuilder()                   // Solicitacao HTTP
             .uri(URI.create(apiUrl))                                    // Define a URI da solicitacao HTTP
             .build();                                                   // Finaliza a construcao da solicitacao HTTP
